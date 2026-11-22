@@ -1,0 +1,544 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ovrina — 김태우</title>
+  <meta name="title-ko" content="Ovrina — 김태우">
+  <meta name="title-en" content="Ovrina — Taewoo Kim">
+  <meta name="description" content="학생용 소셜 플래너 Ovrina를 혼자 기획하고 만들어 출시한 기록.">
+  <script>(function(){var d=document.documentElement,q=new URLSearchParams(location.search);d.classList.add('js');try{if(q.get('motion')!=='0'&&!matchMedia('(prefers-reduced-motion: reduce)').matches){d.classList.add('motion');setTimeout(function(){if(!window.__v2)d.classList.remove('motion')},2500)}}catch(e){}try{var l=(q.get('lang')||localStorage.getItem('tw-lang')||'ko').toLowerCase(),t=q.get('theme')||localStorage.getItem('tw-theme');if(l==='ko'||l==='en')d.lang=l;if(t==='light'||t==='dark')d.dataset.theme=t}catch(e){}})()</script>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <svg class="sprite" width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute">
+    <defs>
+      <linearGradient id="ov-g" x1="0" y1="1" x2="1" y2="0"><stop offset="0" class="ov-a"/><stop offset="1" class="ov-b"/></linearGradient>
+      <!-- Ovrina ring: the mark without its planet (gap from -95° to -20°, same as the app icon) -->
+      <symbol id="ov-ring" viewBox="0 0 100 100"><path d="M87.59 36.32A40 40 0 1 1 46.51 10.15" fill="none" stroke="url(#ov-g)" stroke-width="20" stroke-linecap="round"/></symbol>
+    </defs>
+  </svg>
+  <a class="skip" href="#main"><span data-l="ko" lang="ko">본문으로</span><span data-l="en" lang="en">Skip to content</span></a>
+
+  <header class="site-head">
+    <div class="wrap">
+      <a class="wordmark" href="index.html"><span class="dot" aria-hidden="true"></span><span data-l="ko" lang="ko">김태우</span><span data-l="en" lang="en">Taewoo Kim</span></a>
+      <nav class="site-nav" data-nav aria-label="사이트">
+        <a href="index.html#work"><span data-l="ko" lang="ko">작업</span><span data-l="en" lang="en">Work</span></a>
+        <a href="ovrina.html" aria-current="page">Ovrina</a>
+        <a href="#contact"><span data-l="ko" lang="ko">연락</span><span data-l="en" lang="en">Contact</span></a>
+      </nav>
+      <div class="toggles">
+        <button class="icon-btn cmd-btn" type="button" data-cmd-btn aria-haspopup="dialog" aria-keyshortcuts="Meta+K Control+K" aria-label="빠른 이동">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></svg>
+          <span class="kbd" data-kbd aria-hidden="true">⌘K</span>
+        </button>
+        <button class="icon-btn" type="button" data-lang-btn><span lang="en">EN</span><span class="sep">/</span><b lang="ko">한</b></button>
+        <button class="icon-btn" type="button" data-theme-btn aria-pressed="false" aria-label="다크 모드">
+          <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7z"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- 00 Overview -->
+    <section class="p-hero" id="overview" data-toc="개요|Overview" aria-labelledby="title" data-lb="title|title-en">
+      <div class="wrap" data-stagger>
+        <div class="lockup" data-split><span class="sr">Ovrina</span><span class="ovw" aria-hidden="true"><svg class="ovw-o" viewBox="0 0 100 100" focusable="false"><use href="#ov-ring"/></svg><span class="ovw-t">vr<span class="ovw-i"><span>i</span><i class="ovw-p"></i></span>na</span></span></div>
+        <h1 id="title" data-l="ko" lang="ko">수업, 할 일, 친구와의 약속. <span class="muted">모두 비는 시간을 한&nbsp;번에.</span></h1>
+        <h1 id="title-en" data-l="en" lang="en">Classes, tasks, plans with friends. <span class="muted">Find when everyone’s free.</span></h1>
+        <p class="lede" data-l="ko" lang="ko">학생을 위한 소셜 플래너입니다. 기획, 디자인, 개발, 출시, 운영까지 혼자 했습니다.</p>
+        <p class="lede" data-l="en" lang="en">A social planner for students. Product, design, engineering, launch and operations — all by me.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="https://apps.apple.com/ca/app/ovrina/id6819962270">App Store <span class="ext" aria-hidden="true">↗</span></a>
+          <a class="btn" href="https://play.google.com/store/apps/details?id=app.ovrina">Google Play <span class="ext" aria-hidden="true">↗</span></a>
+          <a class="btn" href="https://ovrina.app">ovrina.app <span class="ext" aria-hidden="true">↗</span></a>
+          <a class="btn" href="https://www.instagram.com/ovrina.app/">Instagram <span class="ext" aria-hidden="true">↗</span></a>
+        </div>
+        <ul class="facts">
+          <li><b><span data-l="ko" lang="ko">역할</span><span data-l="en" lang="en">Role</span></b><span data-l="ko" lang="ko">혼자</span><span data-l="en" lang="en">Solo</span></li>
+          <li><b><span data-l="ko" lang="ko">시작</span><span data-l="en" lang="en">Started</span></b><time datetime="2026-09-21">2026-09-21</time></li>
+          <li><b><span data-l="ko" lang="ko">출시</span><span data-l="en" lang="en">Launched</span></b><time datetime="2026-11-05">2026-11-05</time></li>
+          <li><b><span data-l="ko" lang="ko">플랫폼</span><span data-l="en" lang="en">Platforms</span></b>iOS · Android · Web</li>
+        </ul>
+        <div class="panel panel-ov" data-tilt>
+          <div class="phones three">
+              <figure class="phone side">
+                <img data-l="ko" lang="ko" src="assets/img/ko-phone_calendar.webp" width="780" height="1688" alt="캘린더 주간 보기. 한 주의 수업, 공부, 알바 일정이 요일별로 놓여 있습니다." loading="lazy">
+                <img data-l="en" lang="en" src="assets/img/en-phone_calendar.webp" width="780" height="1688" alt="Calendar week view: a week of classes, study and part-time shifts, day by day." loading="lazy">
+              </figure>
+              <figure class="phone main">
+                <img data-l="ko" lang="ko" src="assets/img/ko-phone_today.webp" width="780" height="1688" alt="오늘 화면. 다음 수업 운영체제까지 남은 시간, 오늘 일정, 일정 사이의 빈 시간이 보입니다." fetchpriority="high">
+                <img data-l="en" lang="en" src="assets/img/en-phone_today.webp" width="780" height="1688" alt="Today screen: time until the next class (Operating Systems), today’s schedule and the free gaps between events." loading="lazy">
+              </figure>
+              <figure class="phone side">
+                <img data-l="ko" lang="ko" src="assets/img/ko-plans_top.webp" width="780" height="1688" alt="약속 화면. 친구 목록과 그룹, 다가오는 약속, 시간 찾기 패널." loading="lazy">
+                <img data-l="en" lang="en" src="assets/img/en-plans_top.webp" width="780" height="1688" alt="Plans screen with friends, groups, upcoming plans and Find a time." loading="lazy">
+              </figure>
+            </div>
+          <span class="caption"><span data-l="ko" lang="ko">실제 앱 화면 · 데모 데이터</span><span data-l="en" lang="en">Real app screens · demo data</span></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 01 Summary -->
+    <section class="sec" id="summary" data-toc="요약|Summary" aria-labelledby="summary-t">
+      <div class="wrap">
+        <h2 class="eyebrow" id="summary-t" data-reveal><span class="n">01</span><span data-l="ko" lang="ko">60초 요약</span><span data-l="en" lang="en">In 60 seconds</span></h2>
+        <ul class="cols3" data-stagger>
+          <li>
+            <h3><span data-l="ko" lang="ko">문제</span><span data-l="en" lang="en">Problem</span></h3>
+            <p data-l="ko" lang="ko">약속을 잡으려면 단톡방에서 “언제 돼?”를 몇 번씩 묻게 됩니다. 수업, 과제, 약속은 각자 다른 앱에 흩어져 있습니다.</p>
+            <p data-l="en" lang="en">Making plans means asking “when are you free?” in the group chat over and over, while classes, tasks and plans live in different apps.</p>
+          </li>
+          <li>
+            <h3><span data-l="ko" lang="ko">만든 것</span><span data-l="en" lang="en">What I built</span></h3>
+            <p data-l="ko" lang="ko">한 앱에서 수업 · 할 일 · D-Day · 집중 타이머를 관리하고, 친구를 고르면 모두 비는 시간을 찾아 그 자리에서 약속을 만듭니다.</p>
+            <p data-l="en" lang="en">One app for classes, tasks, countdowns and a focus timer. Pick friends, see when everyone is free, and make the plan right there.</p>
+          </li>
+          <li>
+            <h3><span data-l="ko" lang="ko">지금</span><span data-l="en" lang="en">Now</span></h3>
+            <p data-l="ko" lang="ko">2026-11-05 출시, 11-19 1.1 업데이트. 출시한 지 2주라 사용자는 아직 적습니다.</p>
+            <p data-l="en" lang="en">Launched 2026-11-05; 1.1 shipped 11-19. Two weeks in, there are only a few users.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 02 Name -->
+    <section class="sec name-block" id="name" data-toc="이름|Name" aria-labelledby="name-t">
+      <div class="wrap">
+        <h2 class="eyebrow" id="name-t" data-reveal><span class="n">02</span><span><span data-l="ko" lang="ko">이름</span><span data-l="en" lang="en">The name</span> · Ovrina =</span></h2>
+        <p class="formula" lang="en" data-reveal data-split><span class="sr">Orbit + Via</span><span class="ovw" aria-hidden="true"><svg class="ovw-o" viewBox="0 0 100 100" focusable="false" style="--ring-gap:.06em"><use href="#ov-ring"/></svg><span class="ovw-t">rbit</span></span><span class="op" aria-hidden="true">+</span><span class="ovw" aria-hidden="true"><span class="ovw-t">V<span class="ovw-i"><span>i</span><i class="ovw-p"></i></span>a</span></span></p>
+        <p class="split-note" data-reveal><span data-l="ko" lang="ko">Ovrina 마크를 둘로 나눈 모양입니다. <svg class="ring-ico" viewBox="0 0 100 100" aria-hidden="true" focusable="false"><use href="#ov-ring"/></svg>궤도는 Orbit의 O가 되고, 궤도 사이를 지나는 <span class="dot-ico" aria-hidden="true"></span>점은 Via의 i 위에 올라갑니다.</span><span data-l="en" lang="en">It’s the Ovrina mark split in two: the <svg class="ring-ico" viewBox="0 0 100 100" aria-hidden="true" focusable="false"><use href="#ov-ring"/></svg>orbit becomes the O in Orbit, and the <span class="dot-ico" aria-hidden="true"></span>planet passing through it becomes the dot on Via’s i.</span></p>
+        <blockquote data-reveal>
+          <p lang="en">Your day turns in an orbit of classes, tasks and plans with friends, and Ovrina calendar finds the way through it.</p>
+          <p class="gloss" data-l="ko" lang="ko">수업, 할 일, 친구와의 약속이 궤도처럼 도는 하루 속에서 Ovrina 캘린더가 길을 찾아 줍니다.</p>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- 03 Core flow: interactive demo -->
+    <section class="sec" id="flow" data-toc="흐름|Flow" aria-labelledby="flow-title">
+      <div class="wrap">
+        <p class="eyebrow" data-reveal><span class="n">03</span><span data-l="ko" lang="ko">흐름</span><span data-l="en" lang="en">Flow</span></p>
+        <div class="split" data-reveal>
+          <h2 id="flow-title"><span data-l="ko" lang="ko">핵심 흐름은 세 단계입니다.</span><span data-l="en" lang="en">The core flow is three steps.</span></h2>
+          <p data-l="ko" lang="ko">친구나 그룹을 고르고, 모두 비는 시간을 보고, 그 자리에서 약속을 만듭니다. 단톡방을 오가지 않아도 됩니다. 아래 데모에서 직접 눌러 볼 수 있습니다.</p>
+          <p data-l="en" lang="en">Pick friends or a group, see when everyone is free, and make the plan on the spot — no back-and-forth in the group chat. Try it in the demo below.</p>
+        </div>
+        <div class="ft" data-findtime data-step="1" data-reveal>
+          <div class="ft-left">
+            <ol class="ft-steps">
+              <li><button type="button" class="ft-step" data-step="1"><span class="n" aria-hidden="true">1</span><b><span data-l="ko" lang="ko">친구 · 그룹 고르기</span><span data-l="en" lang="en">Pick friends or a group</span></b><span class="d"><span data-l="ko" lang="ko">함께할 사람을 고릅니다. 데모에서는 이름을 눌러 빼거나 넣어 보세요.</span><span data-l="en" lang="en">Choose who’s coming. In the demo, tap a name to add or remove them.</span></span></button></li>
+              <li><button type="button" class="ft-step" data-step="2"><span class="n" aria-hidden="true">2</span><b><span data-l="ko" lang="ko">모두 비는 시간 보기</span><span data-l="en" lang="en">See when everyone is free</span></b><span class="d"><span data-l="ko" lang="ko">각자의 하루가 나란히 놓이고, 모두 비는 시간이 표시됩니다. 친구의 일정은 제목 없이 ‘바쁨’으로만 보입니다.</span><span data-l="en" lang="en">Everyone’s day lines up and the shared free time is marked. Friends’ events show only as “busy”.</span></span></button></li>
+              <li><button type="button" class="ft-step" data-step="3"><span class="n" aria-hidden="true">3</span><b><span data-l="ko" lang="ko">그 자리에서 약속 만들기</span><span data-l="en" lang="en">Make the plan there</span></b><span class="d"><span data-l="ko" lang="ko">초대받은 사람은 참석 여부를 답하고, 한 사람당 코멘트 하나를 남깁니다(다시 쓰면 고쳐집니다). 받아들인 약속은 그 사람의 ‘바쁜 시간’에도 들어갑니다.</span><span data-l="en" lang="en">Invitees say whether they’re coming and can each leave one comment (writing again edits it). Accepted plans count toward their busy time.</span></span></button></li>
+            </ol>
+            <p class="ft-note"><span data-l="ko" lang="ko">예시 데이터로 만든 설명용 데모입니다. 실제 앱 화면은 맨 위에 있습니다.</span><span data-l="en" lang="en">An interactive demo with sample data. The real app screens are at the top.</span></p>
+          </div>
+          <div class="ft-stage">
+            <div class="ft-card">
+              <div class="ft-top"><b><span data-l="ko" lang="ko">화요일 · 시간 찾기</span><span data-l="en" lang="en">Tuesday · Find a time</span></b><span class="ft-count"></span></div>
+              <div class="ft-people" role="group"></div>
+              <div class="ft-grid"></div>
+              <div class="ft-foot"><p class="ft-best"></p><button type="button" class="ft-go"></button></div>
+              <div class="ft-invite"><div><div class="invite"></div><button type="button" class="ft-back"></button></div></div>
+              <p class="sr" role="status" data-ft-live></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 Privacy -->
+    <section class="sec" id="privacy" data-toc="공개 범위|Privacy" aria-labelledby="privacy-title">
+      <div class="wrap">
+        <p class="eyebrow" data-reveal><span class="n">04</span><span data-l="ko" lang="ko">공개 범위</span><span data-l="en" lang="en">Privacy</span></p>
+        <div class="split" data-reveal>
+          <h2 id="privacy-title"><span data-l="ko" lang="ko">같은 하루, 보는 사람마다 다르게.</span><span data-l="en" lang="en">Same day, different view for each person.</span></h2>
+          <div>
+            <p data-l="ko" lang="ko">‘모두 비는 시간’은 서로의 일정이 보여야 성립합니다. 하지만 일정의 내용까지 친구에게 다 보여 주고 싶지는 않습니다. 그래서 같은 하루가 보는 사람마다 다르게 보이도록 했습니다. 보는 사람을 바꿔 보세요.</p>
+            <p data-l="en" lang="en">Finding a time only works if people can see each other’s schedules, but not every detail is something you want friends to read. So the same day looks different depending on who is looking. Switch the viewer to see.</p>
+          </div>
+        </div>
+        <div class="pv" data-privacy data-v="me" data-reveal>
+          <div class="pv-tabs" role="tablist" aria-label="보는 사람">
+            <span class="pv-ind" aria-hidden="true"></span>
+            <button type="button" role="tab" id="pv-me" data-viewer="me" aria-controls="pv-panel" aria-selected="true"><i class="av" style="--c:var(--text);color:var(--bg)" aria-hidden="true"><span data-l="ko" lang="ko">나</span><span data-l="en" lang="en">Me</span></i><span><span data-l="ko" lang="ko">나</span><span data-l="en" lang="en">Me</span></span></button>
+            <button type="button" role="tab" id="pv-friend" data-viewer="friend" aria-controls="pv-panel" aria-selected="false" tabindex="-1"><i class="av" style="--c:#2f5bea" aria-hidden="true">M</i><span><span data-l="ko" lang="ko">친구 민지</span><span data-l="en" lang="en">Friend: Minji</span></span></button>
+            <button type="button" role="tab" id="pv-hidden" data-viewer="hidden" aria-controls="pv-panel" aria-selected="false" tabindex="-1"><i class="av" style="--c:#8b8b94" aria-hidden="true">J</i><span><span data-l="ko" lang="ko">숨김 대상 지우</span><span data-l="en" lang="en">Hidden from: Jiwoo</span></span></button>
+          </div>
+          <div class="pv-body" role="tabpanel" id="pv-panel" aria-labelledby="pv-me" tabindex="0">
+            <div class="pv-day" aria-hidden="true">
+              <span class="hr" style="top:0">9:00</span><span class="hr" style="top:25%">11:00</span><span class="hr" style="top:50%">13:00</span><span class="hr" style="top:75%">15:00</span><span class="hr" style="top:100%">17:00</span>
+              <div class="pv-ev priv" style="--t0:9.5;--t1:11"><span class="a"><span><span data-l="ko" lang="ko">자료구조 수업</span><span data-l="en" lang="en">Data Structures</span></span><small><span data-l="ko" lang="ko">비공개</span><span data-l="en" lang="en">private</span></small></span><span class="b"><span data-l="ko" lang="ko">바쁨</span><span data-l="en" lang="en">Busy</span></span></div>
+              <div class="pv-ev priv" style="--t0:12.5;--t1:14"><span class="a"><span><span data-l="ko" lang="ko">치과</span><span data-l="en" lang="en">Dentist</span></span><small><span data-l="ko" lang="ko">비공개</span><span data-l="en" lang="en">private</span></small></span><span class="b"><span data-l="ko" lang="ko">바쁨</span><span data-l="en" lang="en">Busy</span></span></div>
+              <div class="pv-ev pub" style="--t0:15;--t1:16.5"><span class="a"><span><span data-l="ko" lang="ko">스터디</span><span data-l="en" lang="en">Study group</span></span><small><span data-l="ko" lang="ko">공개</span><span data-l="en" lang="en">public</span></small></span></div>
+              <p class="pv-none"><span data-l="ko" lang="ko">아무것도 보이지 않음</span><span data-l="en" lang="en">Nothing is shown</span></p>
+            </div>
+            <div class="pv-side">
+              <div class="pv-say">
+                <div data-for="me">
+                  <h3><span data-l="ko" lang="ko">나에게는 전부 보입니다</span><span data-l="en" lang="en">I see everything</span></h3>
+                  <p data-l="ko" lang="ko">제목도 시간도 그대로입니다. 일정 테이블은 Row Level Security로 주인만 읽을 수 있습니다.</p>
+                  <p data-l="en" lang="en">Titles and times, as they are. Row Level Security lets only the owner read the events table.</p>
+                </div>
+                <div data-for="friend">
+                  <h3><span data-l="ko" lang="ko">친구에게 비공개는 ‘바쁨’으로만</span><span data-l="en" lang="en">Friends see private events only as “busy”</span></h3>
+                  <p data-l="ko" lang="ko">비공개 일정은 제목 없이 시간만 나가고(<code>title</code>이 <code>null</code>), 공개 일정은 제목까지 보입니다.</p>
+                  <p data-l="en" lang="en">Private events go out as times with no title (<code>title</code> is <code>null</code>); public events keep their title.</p>
+                </div>
+                <div data-for="hidden">
+                  <h3><span data-l="ko" lang="ko">숨김 대상에게는 아무것도</span><span data-l="en" lang="en">Nothing for a friend I hide from</span></h3>
+                  <p data-l="ko" lang="ko">내가 바쁜 시간을 숨긴 친구에게는 한 행도 보내지 않습니다. 공개 일정도 마찬가지입니다.</p>
+                  <p data-l="en" lang="en">Not a single row goes to a friend I hide busy times from — public events included.</p>
+                </div>
+              </div>
+              <div class="pv-q" data-pv-out></div>
+              <p class="pv-cap"><span data-l="ko" lang="ko">같은 화요일을 세 사람이 볼 때. 일정은 예시이고, 열 이름과 함수 이름은 실제 스키마 그대로입니다.</span><span data-l="en" lang="en">The same Tuesday, seen by three people. The events are examples; the column and function names are the real schema’s.</span></p>
+            </div>
+          </div>
+        </div>
+        <div class="enforce" data-reveal>
+          <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></span>
+          <p data-l="ko" lang="ko"><b>이 규칙은 앱이 아니라 데이터베이스에서 지킵니다.</b> 처음 만든 스키마부터 일정 테이블은 Row Level Security로 본인만 읽을 수 있고, 친구의 바쁜 시간은 서버 함수 <code>busy_blocks</code>가 계산해서 내보냅니다. 비공개 일정은 제목 없이 시간만 나가기 때문에, 앱을 고쳐도 내용은 받을 수 없습니다. <span class="src">core_schema.sql · privacy.sql</span></p>
+          <p data-l="en" lang="en"><b>These rules are enforced in the database, not the app.</b> From the first schema on, Row Level Security lets only the owner read the events table; friends’ busy times come from a server function, <code>busy_blocks</code>, which sends private events as times with no title. Even a modified app can’t get the details. <span class="src">core_schema.sql · privacy.sql</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 Decisions -->
+    <section class="sec" id="decisions" data-toc="결정|Decisions" aria-labelledby="decisions-title">
+      <div class="wrap">
+        <p class="eyebrow" data-reveal><span class="n">05</span><span data-l="ko" lang="ko">결정</span><span data-l="en" lang="en">Decisions</span></p>
+        <div class="split" data-reveal>
+          <h2 id="decisions-title"><span data-l="ko" lang="ko">결정 세 가지</span><span data-l="en" lang="en">Three decisions</span></h2>
+          <p data-l="ko" lang="ko">카드마다 결정을 먼저 적었습니다. 눌러서 대안 · 이유 · 대가를 볼 수 있습니다. 날짜는 그 결정이 코드에 들어간 날입니다.</p>
+          <p data-l="en" lang="en">Each card states the decision first; open it for the alternative, the reason and the cost. The date is when it landed in the code.</p>
+        </div>
+        <div class="decisions" data-stagger>
+          <article class="decision" data-more-scope>
+            <p class="when"><time datetime="2026-09-23">2026-09-23</time> <code>core_schema.sql</code></p>
+            <h3><span data-l="ko" lang="ko">새 일정은 기본 비공개</span><span data-l="en" lang="en">New events are private by default</span></h3>
+            <p class="dsum" data-l="ko" lang="ko">처음 만든 스키마부터 새 일정의 기본값은 비공개입니다. 친구와 그룹에는 그 시간이 ‘바쁨’으로만 보입니다. 다음 날(09-24) <code>privacy.sql</code>에서 특정 친구에게 바쁜 시간까지 숨기는 기능을 더했습니다.</p>
+            <p class="dsum" data-l="en" lang="en">From the very first schema, new events default to private, so friends and groups see only “busy”. The next day (09-24), <code>privacy.sql</code> added hiding even busy times from a specific friend.</p>
+            <button class="more" type="button" data-more aria-expanded="false" aria-controls="dc-1"><span data-l="ko" lang="ko">대안 · 이유 · 대가</span><span data-l="en" lang="en">Alternative, why, cost</span></button>
+            <div class="collapse" id="dc-1"><div class="collapse-in">
+              <dl>
+                <dt><span data-l="ko" lang="ko">대안</span><span data-l="en" lang="en">Alternative</span></dt>
+                <dd data-l="ko" lang="ko">기본은 공개로 두고, 친구마다 보여 줄 내용을 따로 정하게 하는 방식도 생각했습니다. 하지만 기본값이 비공개여도 설정에서 기본 공개로 바꿀 수 있고 일정마다 따로 정할 수도 있어서, 공개로 시작할 필요는 없다고 봤습니다.</dd>
+                <dd data-l="en" lang="en">I also considered making events public by default and letting people choose, friend by friend, what each one sees. But even with private as the default, you can switch your default to public in your privacy settings or change any single event, so there was no need to start public.</dd>
+                <dt><span data-l="ko" lang="ko">이유</span><span data-l="en" lang="en">Why</span></dt>
+                <dd data-l="ko" lang="ko">캘린더에는 친구에게 보여 주고 싶은 일정도 있지만, 남에게 보여 주고 싶지 않은 개인적인 일정도 함께 들어 있습니다. 그래서 처음에는 내용을 가려 두고, 무엇을 보여 줄지는 본인이 정하게 했습니다.</dd>
+                <dd data-l="en" lang="en">A calendar holds plans you’d like friends to see, but also private things you wouldn’t. So details start out hidden, and each person decides what to show.</dd>
+                <dt><span data-l="ko" lang="ko">대가</span><span data-l="en" lang="en">Cost</span></dt>
+                <dd data-l="ko" lang="ko">공개로 바꾸거나 그룹에 공유하지 않은 일정은 친구에게 제목 없이 ‘바쁨’으로만 보이고, 바쁜 시간까지 숨긴 친구에게는 아예 보이지 않습니다. ‘바쁨’은 시간 찾기에서 그대로 바쁜 시간으로 계산되지만, 친구는 내가 그때 무엇을 하는지 알 수 없어서 이 앱의 핵심 기능 중 하나인 친구끼리 일정 맞추기가 조금 불편해집니다. 그래도 지금 방식이 사생활과 일정 맞추기 사이에서 중간을 잘 찾았다고 생각합니다.</dd>
+                <dd data-l="en" lang="en">Unless you make an event public or share it with a group, friends see it only as an untitled “busy” block, and a friend you’ve hidden your busy times from sees nothing at all. A “busy” block still counts in Find a time, but friends can’t tell what you’re doing then, which makes planning together, one of the app’s core features, a little less convenient. Still, I think the current setup finds a good middle ground between privacy and planning together.</dd>
+              </dl>
+            </div></div>
+          </article>
+
+          <article class="decision" data-more-scope>
+            <p class="when"><time datetime="2026-10-07">2026-10-07</time> <code>account_deletion_grace.sql</code></p>
+            <h3><span data-l="ko" lang="ko">계정 삭제는 30일 뒤에</span><span data-l="en" lang="en">Account deletion waits 30 days</span></h3>
+            <p class="dsum" data-l="ko" lang="ko">탈퇴하면 바로 지우지 않고 30일 동안 닫아 둡니다. 모든 기기에서 로그아웃되고, 다른 사람에게는 서로 차단한 것처럼 어디에도 보이지 않습니다. 그 사이 다시 로그인하면 복구를 제안하고, 30일이 지나면 매일 도는 작업이 완전히 지웁니다.</p>
+            <p class="dsum" data-l="en" lang="en">A deleted account is closed for 30 days before it is erased: signed out everywhere and invisible to everyone, as if both sides had blocked each other. Signing in during that time offers to restore it; after 30 days a daily job erases it for good.</p>
+            <button class="more" type="button" data-more aria-expanded="false" aria-controls="dc-2"><span data-l="ko" lang="ko">대안 · 이유 · 대가</span><span data-l="en" lang="en">Alternative, why, cost</span></button>
+            <div class="collapse" id="dc-2"><div class="collapse-in">
+              <dl>
+                <dt><span data-l="ko" lang="ko">대안</span><span data-l="en" lang="en">Alternative</span></dt>
+                <dd data-l="ko" lang="ko">누르는 즉시 지우는 방식입니다. 출시 전, 테스트하던 동안은 실제로 그렇게 동작했습니다.</dd>
+                <dd data-l="en" lang="en">Deleting the account the moment you confirm. That’s how it actually worked while I was testing, before launch.</dd>
+                <dt><span data-l="ko" lang="ko">이유</span><span data-l="en" lang="en">Why</span></dt>
+                <dd data-l="ko" lang="ko">테스트하다가 제 계정을 실수로 지운 적이 있습니다. 되돌릴 방법이 없어서 처음부터 다시 설정해야 했습니다. 그래서 지운 계정도 30일 동안은 서버에 남겨 두고, 그 사이 다시 로그인하면 되돌릴 수 있게 했습니다.</dd>
+                <dd data-l="en" lang="en">While testing, I once deleted my own account by mistake. There was no way to undo it, and I had to set everything up again. Now a deleted account is kept on the server for 30 days, and signing in during that time lets you restore it.</dd>
+                <dt><span data-l="ko" lang="ko">대가</span><span data-l="en" lang="en">Cost</span></dt>
+                <dd data-l="ko" lang="ko">그 30일 동안은 데이터가 서버에 그대로 남습니다. 앱에는 바로 지우는 버튼이 없어서, 기다리지 않고 지우고 싶은 사람은 이메일로 요청해야 합니다. 개인정보처리방침에 이 기간과 방법을 적어 두었습니다.</dd>
+                <dd data-l="en" lang="en">For those 30 days the data stays on the server. There’s no button in the app to erase it right away, so anyone who doesn’t want to wait has to ask by email. The privacy policy states both the period and how to ask.</dd>
+              </dl>
+            </div></div>
+          </article>
+
+          <article class="decision" data-more-scope>
+            <p class="when"><time datetime="2026-11-09">2026-11-09</time> <code>email_sign_ups_closed.sql</code></p>
+            <h3><span data-l="ko" lang="ko">새 가입은 Google · Apple로만</span><span data-l="en" lang="en">New sign-ups only via Google or Apple</span></h3>
+            <p class="dsum" data-l="ko" lang="ko">이메일로 새 계정을 만드는 길을 닫았습니다. 이미 이메일로 가입한 사람은 지금처럼 이메일 코드로 로그인합니다. 앱뿐 아니라 서버(Supabase Auth의 Before User Created 훅)에서도 막기 때문에, 이메일로 계정을 만들 수 있던 1.0 빌드에서도 이메일로는 새 계정을 만들 수 없습니다.</p>
+            <p class="dsum" data-l="en" lang="en">Email sign-ups are closed; people who already signed up by email keep signing in with an emailed code. The block runs on the server too (a Supabase Auth “Before User Created” hook), not just in the app, so even 1.0 builds, which still offer email sign-up, can’t create new accounts by email.</p>
+            <button class="more" type="button" data-more aria-expanded="false" aria-controls="dc-3"><span data-l="ko" lang="ko">대안 · 이유 · 대가</span><span data-l="en" lang="en">Alternative, why, cost</span></button>
+            <div class="collapse" id="dc-3"><div class="collapse-in">
+              <dl>
+                <dt><span data-l="ko" lang="ko">대안</span><span data-l="en" lang="en">Alternative</span></dt>
+                <dd data-l="ko" lang="ko">이메일 가입은 그대로 두고, 가입할 때 비밀번호도 함께 정하게 하는 방법이 있었습니다. 하지만 주변에서 비밀번호를 잊어버려 매번 다시 설정하거나 아예 새 계정을 만드는 일을 여러 번 봐서, 그런 일을 줄이려고 비밀번호를 따로 두지 않는 쪽을 골랐습니다. 나중에 서버와, 메일을 보내 코드로 확인하는 과정이 더 갖춰지면 이 방법을 넣을 생각이 있습니다.</dd>
+                <dd data-l="en" lang="en">I could have kept email sign-up and had people set a password as well. But I’d seen people around me forget their passwords, reset them over and over, or just make a new account, and I wanted to keep that to a minimum, so I left passwords out. I plan to add this option later, once the server and the verification-code emails are more reliable.</dd>
+                <dt><span data-l="ko" lang="ko">이유</span><span data-l="en" lang="en">Why</span></dt>
+                <dd data-l="ko" lang="ko">1.0에서는 이메일 로그인을 쉽게 하려고 비밀번호 없이, 이메일로 받은 6자리 코드로 로그인하게 했습니다. 하지만 이 방식에서는 누군가 내 이메일에 들어가면 내 Ovrina 계정에도 바로 들어갈 수 있었고, 이메일 주소만 있으면 계정을 여러 개 쉽게 만들 수 있어 악용될 여지도 있었습니다. 보안을 지키기 어렵다고 보고, 이 방식으로 로그인하는 계정이 더 늘지 않도록 이메일로 새로 가입하는 길을 막았습니다.</dd>
+                <dd data-l="en" lang="en">In 1.0, to keep email sign-in easy, I left out passwords: you signed in with a 6-digit code sent to your email. But that meant anyone who got into your email could sign in to your Ovrina account too, and an email address alone made it easy to create many accounts, which could be abused. I decided that was too hard to keep secure, so I closed new email sign-ups to stop more accounts from relying on it.</dd>
+                <dt><span data-l="ko" lang="ko">대가</span><span data-l="en" lang="en">Cost</span></dt>
+                <dd data-l="ko" lang="ko">Google · Apple 계정을 쓰지 않는 사람은 이제 새로 가입할 수 없습니다.</dd>
+                <dd data-l="en" lang="en">People without a Google or Apple account can no longer sign up.</dd>
+              </dl>
+            </div></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 Architecture (dark band) -->
+    <section class="band" id="architecture" data-toc="구조|Architecture" aria-labelledby="arch-title">
+      <div class="wrap">
+        <p class="eyebrow" data-reveal><span class="n">06</span><span data-l="ko" lang="ko">구조</span><span data-l="en" lang="en">Architecture</span></p>
+        <div class="split" data-reveal>
+          <h2 id="arch-title"><span data-l="ko" lang="ko">코드 하나로 세 플랫폼.</span><span data-l="en" lang="en">One codebase, three platforms.</span></h2>
+          <p data-l="ko" lang="ko">앱은 Flutter 하나로 iOS · Android · 웹을 만들고, 서버는 Supabase(캐나다 리전) 위에 올렸습니다. 휴대폰 앱은 오프라인에서도 동작합니다. 층을 누르면 그 안에 무엇이 있는지 보입니다.</p>
+          <p data-l="en" lang="en">One Flutter codebase ships iOS, Android and the web; the backend runs on Supabase in the Canada region. The phone apps keep working offline. Pick a layer to see what lives there.</p>
+        </div>
+        <div class="arch" data-arch>
+          <div class="arch-scene" aria-hidden="true">
+            <span class="pkt"></span>
+            <div class="plate" style="--i:0"><div class="pl-in"><div class="pl-chips"><i></i><i></i><i></i></div><b>Flutter</b><span>iOS · Android · Web</span></div></div>
+            <div class="plate" style="--i:1"><div class="pl-in"><div class="pl-chips"><i></i><i></i></div><b>Supabase</b><span>Auth · Realtime · Edge</span></div></div>
+            <div class="plate" style="--i:2"><div class="pl-in"><div class="pl-chips"><i></i><i></i><i></i></div><b>Postgres</b><span>RLS · busy_blocks</span></div></div>
+            <div class="plate" style="--i:3"><div class="pl-in"><div class="pl-chips"><i></i><i></i><i></i></div><b>FCM · Resend</b><span>Cloudflare</span></div></div>
+          </div>
+          <ol class="arch-list">
+            <li>
+              <button class="arch-btn" type="button" data-layer-btn aria-expanded="false" aria-controls="al-0"><span class="n">01</span><span><span data-l="ko" lang="ko">앱</span><span data-l="en" lang="en">App</span> <small>Flutter</small></span></button>
+              <div class="collapse" id="al-0"><div class="collapse-in"><div>
+                <p data-l="ko" lang="ko">iOS · Android · 웹. 한국어 · 영어. 휴대폰 앱은 오프라인에서도 동작하고, 다시 열면 바뀐 것만 받아 맞춥니다.</p>
+                <p data-l="en" lang="en">iOS, Android and the web. Korean and English. The phone apps work offline and sync only what changed on reopen.</p>
+                <div class="pills"><i>iOS</i><i>Android</i><i>Web</i><i>ko · en</i></div>
+              </div></div></div>
+            </li>
+            <li>
+              <button class="arch-btn" type="button" data-layer-btn aria-expanded="false" aria-controls="al-1"><span class="n">02</span><span><span data-l="ko" lang="ko">서버</span><span data-l="en" lang="en">Backend</span> <small>Supabase · ca-central-1</small></span></button>
+              <div class="collapse" id="al-1"><div class="collapse-in"><div>
+                <p data-l="ko" lang="ko">로그인(이메일 코드 · Google · Apple), Realtime, 그리고 Edge Functions.</p>
+                <p data-l="en" lang="en">Auth (email code, Google, Apple), Realtime, and Edge Functions.</p>
+                <div class="pills"><i>Edge Functions: push</i><i>delete-account</i><i>report-alert</i></div>
+              </div></div></div>
+            </li>
+            <li>
+              <button class="arch-btn" type="button" data-layer-btn aria-expanded="false" aria-controls="al-2"><span class="n">03</span><span><span data-l="ko" lang="ko">데이터베이스</span><span data-l="en" lang="en">Database</span> <small>Postgres + RLS</small></span></button>
+              <div class="collapse" id="al-2"><div class="collapse-in"><div>
+                <p data-l="ko" lang="ko">일정 테이블은 Row Level Security로 주인만 읽고, 친구의 바쁜 시간은 서버 함수 <code>busy_blocks</code>가 계산합니다. 스키마는 마이그레이션 48개로만 바꿨습니다.</p>
+                <p data-l="en" lang="en">Row Level Security lets only the owner read the events table; friends’ busy times come from the <code>busy_blocks</code> function. The schema changed only through 48 migrations.</p>
+                <div class="pills"><i>core_schema</i><i>privacy</i><i>planner_sync</i></div>
+              </div></div></div>
+            </li>
+            <li>
+              <button class="arch-btn" type="button" data-layer-btn aria-expanded="false" aria-controls="al-3"><span class="n">04</span><span><span data-l="ko" lang="ko">연결된 서비스</span><span data-l="en" lang="en">Services</span> <small>FCM · Resend · Cloudflare</small></span></button>
+              <div class="collapse" id="al-3"><div class="collapse-in"><div>
+                <p data-l="ko" lang="ko">FCM으로 푸시 알림을 보내고, Resend로 로그인 코드 메일을 보내고, 웹은 Cloudflare에 올립니다.</p>
+                <p data-l="en" lang="en">FCM for push notifications, Resend for sign-in code emails, Cloudflare for the web build.</p>
+                <div class="pills"><i>FCM</i><i>Resend</i><i>Cloudflare</i></div>
+              </div></div></div>
+            </li>
+          </ol>
+        </div>
+        <div class="migr">
+          <div data-reveal>
+            <h3><span data-l="ko" lang="ko">스키마는 마이그레이션 파일로만 바꿉니다.</span><span data-l="en" lang="en">The schema only changes through migrations.</span></h3>
+            <p data-l="ko" lang="ko">전체 48개 중 일부입니다. 날짜는 각 파일이 git에 처음 들어간 날입니다.</p>
+            <p data-l="en" lang="en">A few of the 48, dated by when each file first entered git.</p>
+          </div>
+          <ol data-stagger>
+            <li><time datetime="2026-09-23">2026-09-23</time><span>core_schema</span></li>
+            <li><time datetime="2026-09-24">2026-09-24</time><span>friends_live_groups</span></li>
+            <li><time datetime="2026-09-24">2026-09-24</time><span>privacy</span></li>
+            <li><time datetime="2026-09-28">2026-09-28</time><span>event_comments</span></li>
+            <li><time datetime="2026-09-29">2026-09-29</time><span>security_hardening</span></li>
+            <li><time datetime="2026-10-07">2026-10-07</time><span>account_deletion_grace</span></li>
+            <li><time datetime="2026-11-09">2026-11-09</time><span>email_sign_ups_closed</span></li>
+            <li><time datetime="2026-11-13">2026-11-13</time><span>planner_sync</span></li>
+            <li class="more-row"><time>…</time><span><span data-l="ko" lang="ko">전체 48개</span><span data-l="en" lang="en">48 in total</span></span></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 Hard problems -->
+    <section class="sec" id="problems" data-toc="테스트|Tests" aria-labelledby="problems-title">
+      <div class="wrap">
+        <p class="eyebrow" data-reveal><span class="n">07</span><span data-l="ko" lang="ko">테스트</span><span data-l="en" lang="en">Tests</span></p>
+        <div class="split" data-reveal>
+          <h2 id="problems-title"><span data-l="ko" lang="ko">어려웠던 문제와 그 테스트</span><span data-l="en" lang="en">Hard problems, and the tests that guard them</span></h2>
+          <p data-l="ko" lang="ko">테스트 파일은 모두 173개이고, 지금은 로컬에서 <code>flutter test</code>로 돌립니다. CI는 아직 없습니다.</p>
+          <p data-l="en" lang="en">173 test files in all, run locally with <code>flutter test</code>. No CI yet.</p>
+        </div>
+        <div class="problems" data-stagger>
+          <div class="problem" data-more-scope>
+            <h3><span data-l="ko" lang="ko">다시 열었을 때 바뀐 것만 받아 맞추기</span><span data-l="en" lang="en">Catching up with only what changed</span></h3>
+            <p data-l="ko" lang="ko">다시 열면 바뀐 것만 받아 옵니다. 그 결과가 처음부터 전부 받은 결과와 같은지 실제 서버 SQL로 확인합니다.</p>
+            <p data-l="en" lang="en">On reopening, the apps fetch only what changed — and a test checks the result against a full sync, using the real server SQL.</p>
+            <button class="more" type="button" data-more aria-expanded="false" aria-controls="pb-1"><span data-l="ko" lang="ko">자세히</span><span data-l="en" lang="en">Details</span></button>
+            <div class="collapse" id="pb-1"><div class="collapse-in">
+              <p data-l="ko" lang="ko">휴대폰 앱은 다시 열면 그동안 바뀐 것만 받아 옵니다. 실제 서버 동기화 SQL(<code>planner_sync</code>)을 PGlite에서 모든 마이그레이션과 RLS를 켠 채 돌려 응답을 기록해 두었고, 테스트는 그 응답으로 한 시간 뒤 다른 기기에서 생긴 변경(삭제, 수정, 반복 할 일 체크, 초대 응답 등)만 받은 결과가 처음부터 전부 다시 받은 결과와 같은지 비교합니다.</p>
+              <p data-l="en" lang="en">On reopening, the phone apps fetch only what changed. I ran the real sync SQL (<code>planner_sync</code>) in PGlite with every migration and RLS on and recorded its answers. The test replays them: after an hour of changes on another device (deletes, edits, a repeating to-do ticked, an invite answered…), the incremental result must match a fresh full sync.</p>
+            </div></div>
+            <p class="test"><code>planner_sync_real_test.dart</code></p>
+          </div>
+          <div class="problem" data-more-scope>
+            <h3><span data-l="ko" lang="ko">‘모두 비는 시간’ 중 무엇을 먼저 보여 줄지</span><span data-l="en" lang="en">Which free slot to suggest first</span></h3>
+            <p data-l="ko" lang="ko">모두 비는 시간이 여러 개일 때 무엇을 먼저 보여 줄지 규칙을 정하고, 테스트로 지킵니다.</p>
+            <p data-l="en" lang="en">When several slots work for everyone, rules decide which to show first — and tests hold them in place.</p>
+            <button class="more" type="button" data-more aria-expanded="false" aria-controls="pb-2"><span data-l="ko" lang="ko">자세히</span><span data-l="en" lang="en">Details</span></button>
+            <div class="collapse" id="pb-2"><div class="collapse-in">
+              <p data-l="ko" lang="ko">추천 시간은 오전 7시부터 자정 사이에서 먼저 찾고, 늦은 저녁이 이른 아침보다 앞서며, 맞는 시간이 없으면 하루 전체로 넓힙니다. 오늘이면 다음 15분 단위부터 찾습니다.</p>
+              <p data-l="en" lang="en">It looks between 7 AM and midnight first, prefers late evening over early morning, widens to the whole day when nothing fits, and starts from the next quarter hour for today.</p>
+            </div></div>
+            <p class="test"><code>find_time_window_test.dart</code><b><span data-l="ko" lang="ko">테스트 9개</span><span data-l="en" lang="en">9 tests</span></b></p>
+          </div>
+          <div class="problem" data-more-scope>
+            <h3><span data-l="ko" lang="ko">한국어 줄바꿈</span><span data-l="en" lang="en">Korean line breaking</span></h3>
+            <p data-l="ko" lang="ko">Flutter에는 keep-all이 없어 한국어 단어가 중간에서 끊깁니다. 단어를 묶는 생성기를 직접 만들었습니다.</p>
+            <p data-l="en" lang="en">Flutter has no keep-all, so Korean words break mid-word. I wrote a generator that keeps words together.</p>
+            <button class="more" type="button" data-more aria-expanded="false" aria-controls="pb-3"><span data-l="ko" lang="ko">자세히</span><span data-l="en" lang="en">Details</span></button>
+            <div class="collapse" id="pb-3"><div class="collapse-in">
+              <p data-l="ko" lang="ko">CSS에는 <code>word-break: keep-all</code>이 있지만 Flutter에는 없습니다. 단어의 글자를 묶는 생성기를 만들었고, 붙은 영문·숫자, 가운뎃점, 따옴표와 조사, 자모를 이어 쓴 옛한글까지 테스트로 지킵니다.</p>
+              <p data-l="en" lang="en">CSS has <code>word-break: keep-all</code>; Flutter doesn’t. I wrote a generator that keeps each word together, with tests for attached Latin letters and digits, middle dots, quotes with particles, and old-style letters written as conjoining jamo.</p>
+            </div></div>
+            <p class="test"><code>keep_all_test.dart</code><b><span data-l="ko" lang="ko">테스트 14개</span><span data-l="en" lang="en">14 tests</span></b></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 08 Work log -->
+    <section class="sec" id="log" data-toc="기록|Log" aria-labelledby="log-title">
+      <div class="wrap">
+        <p class="eyebrow" data-reveal><span class="n">08</span><span data-l="ko" lang="ko">기록</span><span data-l="en" lang="en">Log</span></p>
+        <div class="split" data-reveal>
+          <h2 id="log-title"><span data-l="ko" lang="ko">작업 기록</span><span data-l="en" lang="en">Work log</span></h2>
+          <p data-l="ko" lang="ko"><span data-total>60</span>일 중 <b data-worked>37</b>일 커밋했습니다. 막대는 하루 커밋, 아래 두 줄은 빌드 번호와 코드 밖의 일입니다. 막대 위를 움직이면 그날의 기록이 보이고, 날짜별 내용은 표로도 볼 수 있습니다.</p>
+          <p data-l="en" lang="en">Commits on <b data-worked>37</b> of <span data-total>60</span> days. Bars are daily commits; the two rows below are build numbers and work outside the code. Move across the bars to read a day; everything is also in the table.</p>
+        </div>
+        <div class="card card-log" data-reveal>
+          <div class="bars" data-bars data-full data-grow></div>
+          <div class="legend">
+            <span><i></i><i class="l1"></i><i class="l2"></i><i class="l3"></i> <span data-l="ko" lang="ko">하루 커밋 0 · 1 · 2–3 · 4+</span><span data-l="en" lang="en">commits a day: 0 · 1 · 2–3 · 4+</span></span>
+            <span><i class="ln"></i><span data-l="ko" lang="ko">출시</span><span data-l="en" lang="en">release</span></span>
+            <span><i class="dot"></i><span data-l="ko" lang="ko">빌드</span><span data-l="en" lang="en">build</span></span>
+            <span><i class="dot off"></i><span data-l="ko" lang="ko">약관 · 스토어 문구 · 홍보</span><span data-l="en" lang="en">legal · store listing · promotion</span></span>
+            <span class="hint"><kbd>←</kbd><kbd>→</kbd> <span data-l="ko" lang="ko">하루씩</span><span data-l="en" lang="en">day by day</span></span>
+          </div>
+          <details class="table">
+            <summary><span data-l="ko" lang="ko">주별 표로 보기</span><span data-l="en" lang="en">Show week by week</span></summary>
+            <div class="table-scroll">
+              <table>
+                <thead><tr>
+                  <th><span data-l="ko" lang="ko">주 (월요일)</span><span data-l="en" lang="en">Week of</span></th>
+                  <th><span data-l="ko" lang="ko">작업한 날</span><span data-l="en" lang="en">Days</span></th>
+                  <th><span data-l="ko" lang="ko">커밋</span><span data-l="en" lang="en">Commits</span></th>
+                  <th><span data-l="ko" lang="ko">그 주의 일</span><span data-l="en" lang="en">Notes</span></th>
+                </tr></thead>
+                <tbody data-week-table></tbody>
+              </table>
+            </div>
+          </details>
+        </div>
+
+        <div class="duo" data-stagger>
+          <div class="card">
+            <h3><span data-l="ko" lang="ko">빌드 번호</span><span data-l="en" lang="en">Build numbers</span></h3>
+            <p class="small muted" style="margin:0"><span data-l="ko" lang="ko">pubspec.yaml 기록에 나오는 것 전부 · 가리키면 그래프에 표시</span><span data-l="en" lang="en">Every one in pubspec.yaml’s history · point to see it on the chart</span></p>
+            <ol class="builds">
+              <li data-day="2026-09-21">09-21<b>+1</b></li><li data-day="2026-10-07">10-07<b>+3</b></li><li data-day="2026-10-10">10-10<b>+4</b></li><li data-day="2026-10-12">10-12<b>+5</b></li><li data-day="2026-10-18">10-18<b>+6</b></li><li data-day="2026-10-20">10-20<b>+7</b></li><li data-day="2026-10-23">10-23<b>+8</b></li><li data-day="2026-10-28">10-28<b>+9</b></li><li data-day="2026-11-11">11-11<b>1.1.0 +10, +11</b></li>
+            </ol>
+            <p class="source"><span data-l="ko" lang="ko">+2는 pubspec.yaml 기록에 나오지 않습니다.</span><span data-l="en" lang="en">+2 never appears in pubspec.yaml’s history.</span></p>
+          </div>
+          <div class="card">
+            <h3><span data-l="ko" lang="ko">1.1에서 달라진 것</span><span data-l="en" lang="en">What’s new in 1.1</span></h3>
+            <ul class="checks" data-l="ko" lang="ko">
+              <li>홈 화면 위젯, 그리고 iPhone 잠금 화면 위젯</li>
+              <li>일정을 누르면 내용이 먼저 보이고, 연필을 눌러 고치기</li>
+              <li>할 일과 리마인더를 길게 눌러 순서 바꾸기</li>
+              <li>편집 창 맨 위의 공개 범위 스위치</li>
+              <li>기능마다 움직이는 그림으로 보여 주는 팁, 설정과 기록 백업·복원</li>
+            </ul>
+            <ul class="checks" data-l="en" lang="en">
+              <li>Home Screen widgets, and a Lock Screen widget on iPhone</li>
+              <li>Tap an event to view it first; tap the pencil to edit</li>
+              <li>Long-press to reorder tasks and reminders</li>
+              <li>A privacy switch at the top of the editor</li>
+              <li>Animated tips for each feature; backup and restore of settings and records</li>
+            </ul>
+            <p class="source"><span data-l="ko" lang="ko">출처: 스토어에 올린 1.1 소개 문구</span><span data-l="en" lang="en">Source: the 1.1 store listing text</span></p>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:12px" data-reveal>
+          <h3 style="font-size:17px;letter-spacing:-.02em"><span data-l="ko" lang="ko">코드 밖의 일</span><span data-l="en" lang="en">Work outside the code</span></h3>
+          <ol class="timeline">
+            <li data-day="2026-09-28"><time datetime="2026-09-28">2026-09-28</time><span><span data-l="ko" lang="ko">이용약관 · 개인정보처리방침 첫 버전 시행 (한국어 · 영어)</span><span data-l="en" lang="en">Terms of Service and Privacy Policy v1 take effect (Korean, English)</span><a href="https://ovrina.app/terms/">ovrina.app/terms ↗</a></span></li>
+            <li data-day="2026-10-07"><time datetime="2026-10-07">2026-10-07</time><span><span data-l="ko" lang="ko">개인정보처리방침 개정 — 계정 삭제 30일 복구 반영</span><span data-l="en" lang="en">Privacy Policy revised for the 30-day account restore</span><a href="https://ovrina.app/privacy/">ovrina.app/privacy ↗</a></span></li>
+            <li data-day="2026-10-27"><time datetime="2026-10-27">2026-10-27</time><span><span data-l="ko" lang="ko">App Store · Google Play 소개 문구 1.0 (한국어 · 영어)</span><span data-l="en" lang="en">App Store and Google Play listing 1.0 (Korean, English)</span></span></li>
+            <li data-day="2026-11-11"><time datetime="2026-11-11">2026-11-11</time><span><span data-l="ko" lang="ko">스토어 소개 문구 1.1</span><span data-l="en" lang="en">Store listing 1.1</span></span></li>
+            <li data-day="2026-11-19"><time datetime="2026-11-19">2026-11-19</time><span><span data-l="ko" lang="ko">약관 · 개인정보처리방침 개정 공고 (12-19 시행)</span><span data-l="en" lang="en">Revised terms and privacy policy announced (effective 12-19)</span></span></li>
+            <li data-day="2026-11-19"><time datetime="2026-11-19">2026-11-19</time><span><span data-l="ko" lang="ko">Instagram에서 알리기 시작</span><span data-l="en" lang="en">Started promoting on Instagram</span><a href="https://www.instagram.com/ovrina.app/">@ovrina.app ↗</a></span></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- 09 Wrap-up -->
+    <section class="sec" id="now" data-toc="마무리|Wrap-up" aria-labelledby="now-t">
+      <div class="wrap">
+        <h2 class="eyebrow" id="now-t" data-reveal><span class="n">09</span><span data-l="ko" lang="ko">마무리</span><span data-l="en" lang="en">Wrap-up</span></h2>
+        <div class="closing" data-stagger>
+          <div class="card soft">
+            <h3><span data-l="ko" lang="ko">지금</span><span data-l="en" lang="en">Where it stands</span></h3>
+            <p data-l="ko" lang="ko">2026-11-19 기준으로 출시한 지 2주가 지났고, 사용자는 아직 적습니다. 1.1에 맞춰 Instagram에서 알리기 시작했습니다.</p>
+            <p data-l="en" lang="en">As of 2026-11-19, it’s two weeks since launch and users are still few. I started promoting it on Instagram with 1.1.</p>
+          </div>
+          <div class="card soft">
+            <h3 id="next-title"><span data-l="ko" lang="ko">배운 것과 다음</span><span data-l="en" lang="en">What I learned, and what’s next</span></h3>
+            <p data-l="ko" lang="ko">혼자 만들면서 가장 오래 걸린 일은 버그를 잡는 것이었습니다. 앱 안의 버그뿐 아니라 서버 쪽 버그도 있었고, 실제 휴대폰에 설치해 보니 리소스를 너무 많이 쓰는 성능 문제도 있었습니다. 기능은 많은데 화면은 최대한 단순하게 만들려면 어떻게 해야 할지 고민하고 풀어내는 데에도 시간이 많이 들었습니다.</p>
+            <p data-l="ko" lang="ko">다음 앱을 만든다면 기능을 먼저 다 완성한 뒤에 UI/UX를 다듬으려고 합니다. 이번에는 중간중간 화면을 다듬다 보니 기능도 계속 더하게 되었고, 그러면서 처음 계획한 방향에서 벗어나 더 힘들었습니다.</p>
+            <p data-l="en" lang="en">Working alone, what took longest was fixing bugs: bugs in the app, bugs on the server, and performance problems that appeared once I installed it on a real phone, where it used far too many resources. Working out how to fit this many features into a UI that stays as simple as possible also took a lot of time.</p>
+            <p data-l="en" lang="en">For my next app, I’d finish the features first and polish the UI/UX afterwards. This time I kept polishing the screens as I went and kept adding features along the way, so the app drifted from what I first planned and became harder to build.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-foot" id="contact" data-toc="연락|Contact">
+    <div class="wrap">
+      <p class="eyebrow" data-reveal><span class="n">10</span><span data-l="ko" lang="ko">연락</span><span data-l="en" lang="en">Contact</span></p>
+      <h2 class="statement" data-l="ko" lang="ko" data-reveal>소스는 비공개입니다. <span class="muted">요청하시면 화면 공유로 코드를 보여 드립니다.</span></h2>
+      <h2 class="statement" data-l="en" lang="en" data-reveal>The source is private. <span class="muted">I’m happy to walk through the code on a screen share.</span></h2>
+      <div class="contact-grid" data-stagger>
+        <div class="c-mail">
+          <h3><span data-l="ko" lang="ko">이메일</span><span data-l="en" lang="en">Email</span></h3>
+          <a href="mailto:ovrina.app@gmail.com">ovrina.app@gmail.com</a>
+        </div>
+        <div>
+          <h3>GitHub</h3>
+          <a href="https://github.com/TwShrimp">@TwShrimp ↗</a>
+        </div>
+        <div>
+          <h3>Instagram</h3>
+          <a href="https://www.instagram.com/ovrina.app/">@ovrina.app ↗</a>
+        </div>
+        <div>
+          <h3><span data-l="ko" lang="ko">다른 작업</span><span data-l="en" lang="en">Other work</span></h3>
+          <a href="index.html#nightcourier">NightCourier →</a>
+        </div>
+      </div>
+      <p class="wordmark-xl" aria-hidden="true" data-reveal>TwShrimp</p>
+      <div class="fine">
+        <p data-l="ko" lang="ko">커밋 막대는 Ovrina 비공개 저장소 git 기록의 날짜만 셉니다(커밋 메시지 · 시각은 내보내지 않음). 빌드 번호는 pubspec.yaml의 버전 기록에서 가져왔고, 출시일 · 1.1 출시일 · 코드 밖의 일은 제가 직접 적었습니다.</p>
+        <p data-l="en" lang="en">Commit bars count dates only from Ovrina’s private git history (no messages or times). Build numbers come from pubspec.yaml’s version history; the launch date, the 1.1 date and the off-code entries are ones I entered myself.</p>
+        <p><kbd data-kbd>⌘K</kbd> <span data-l="ko" lang="ko">빠른 이동</span><span data-l="en" lang="en">quick jump</span> · <span data-l="ko" lang="ko">마지막 갱신</span><span data-l="en" lang="en">Updated</span> <time datetime="2026-11-19">2026-11-19</time> · © 2026 <span data-l="ko" lang="ko">김태우</span><span data-l="en" lang="en">Taewoo Kim</span></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/data.js"></script>
+  <script src="assets/site.js"></script>
+</body>
+</html>

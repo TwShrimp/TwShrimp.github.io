@@ -1,0 +1,11 @@
+# macOS Finder files
+.DS_Store
+
+# Local tool settings
+.claude/
+
+# Planning notes stay on this computer, not in the public repo
+docs/
+
+# Drafts and mockups stay on this computer
+mockup/
