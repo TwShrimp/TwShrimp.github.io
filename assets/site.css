@@ -138,6 +138,10 @@ kbd { font-family: var(--sans); font-size: 11px; font-weight: 600; color: var(--
   transition: border-color .2s ease;
 }
 .site-head.scrolled { border-bottom-color: var(--line); }
+/* iPhone browsers only update the status bar colour from a solid header, so skip the glass effect there */
+@supports (-webkit-touch-callout: none) {
+  .site-head { background: var(--bg); -webkit-backdrop-filter: none; backdrop-filter: none; }
+}
 .site-head .wrap { display: flex; align-items: center; gap: 16px; height: 64px; }
 .site-head .progress { position: absolute; left: 0; right: 0; bottom: -1px; height: 2px; background: var(--grad); transform-origin: 0 50%; transform: scaleX(0); pointer-events: none; }
 .wordmark { display: inline-flex; align-items: center; gap: 10px; font-weight: 650; font-size: 16px; letter-spacing: -0.02em; text-decoration: none; white-space: nowrap; }

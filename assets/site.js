@@ -11,6 +11,7 @@
   var store = {
     get: function (k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
     set: function (k, v) { try { localStorage.setItem(k, v); } catch (e) {} },
+    remove: function (k) { try { localStorage.removeItem(k); } catch (e) {} },
   };
   function pick(v, ok, d) { return ok.indexOf(v) > -1 ? v : d; }
   function $(s, c) { return (c || document).querySelector(s); }
@@ -26,7 +27,11 @@
   var CHEV = '<span class="chev" aria-hidden="true"><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3.8 5 6.6l3-2.8"/></svg></span>';
 
   // ---------- 2. Language & theme ----------
-  var lang = pick((q.get('lang') || '').toLowerCase(), ['ko', 'en'], pick(store.get('tw-lang'), ['ko', 'en'], 'ko'));
+  // Order: a ?lang= link, then the visitor's own choice, then the device language (set up in the head script)
+  var deviceLang = window.__deviceLang || function () { return 'en'; };
+  var urlLang = pick((q.get('lang') || '').toLowerCase(), ['ko', 'en'], null);
+  function savedLang() { return pick(store.get('tw-lang'), ['ko', 'en'], null); }
+  var lang = urlLang || savedLang() || deviceLang();
   var langHooks = [];
   function L(ko, en) { return lang === 'ko' ? ko : en; }
   function applyLang() {
@@ -45,15 +50,31 @@
     if (t) document.title = t.content;
     langHooks.forEach(function (f) { f(); });
   }
-  function toggleLang() { lang = lang === 'ko' ? 'en' : 'ko'; store.set('tw-lang', lang); applyLang(); }
+  // Picking the device's own language clears the saved choice, so the site follows the device again
+  function toggleLang() {
+    lang = lang === 'ko' ? 'en' : 'ko';
+    if (lang === deviceLang()) store.remove('tw-lang'); else store.set('tw-lang', lang);
+    applyLang();
+  }
   document.addEventListener('click', function (e) { if (e.target.closest('[data-lang-btn]')) toggleLang(); });
+  window.addEventListener('languagechange', function () {
+    if (urlLang || savedLang() || deviceLang() === lang) return;
+    lang = deviceLang();
+    applyLang();
+  });
 
   var saved = pick(q.get('theme'), ['light', 'dark'], pick(store.get('tw-theme'), ['light', 'dark'], null));
   if (saved) root.dataset.theme = saved;
   var mq = window.matchMedia('(prefers-color-scheme: dark)');
   function isDark() { return (root.dataset.theme || (mq.matches ? 'dark' : 'light')) === 'dark'; }
   function labelTheme() { $$('[data-theme-btn]').forEach(function (b) { b.setAttribute('aria-pressed', String(isDark())); }); }
-  function toggleTheme() { root.dataset.theme = isDark() ? 'light' : 'dark'; store.set('tw-theme', root.dataset.theme); labelTheme(); }
+  // Same rule as language: picking what the device already uses goes back to following it
+  function toggleTheme() {
+    var next = isDark() ? 'light' : 'dark';
+    if (next === (mq.matches ? 'dark' : 'light')) { delete root.dataset.theme; store.remove('tw-theme'); }
+    else { root.dataset.theme = next; store.set('tw-theme', next); }
+    labelTheme();
+  }
   if (mq.addEventListener) mq.addEventListener('change', labelTheme);
   document.addEventListener('click', function (e) { if (e.target.closest('[data-theme-btn]')) toggleTheme(); });
 
